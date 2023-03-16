@@ -14,7 +14,7 @@ This app has been tested with Tanzu GemFire for VMs version 1.8.1.
 
 ## Prerequisites
 
-- **Node.js**, minimum version of 10.16.3
+- **Node.js**, minimum version of 14
 
 - **npm**, the Node.js package manager
 
