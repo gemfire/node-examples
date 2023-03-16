@@ -69,6 +69,13 @@ async function initCacheFactory() {
 
 /*
   cacheFactory.set('ssl-truststore', '/etc/ssl/certs/ca-certificates.crt')
+/*
+* Un-comment the two following lines if running against a PCC instance with TLS enabled
+*/
+/*
+  cacheFactory.set('ssl-truststore', '/etc/ssl/certs/ca-certificates.crt')
+  cacheFactory.set('ssl-enabled', 'true')
+*/
   cacheFactory.set('ssl-enabled', 'true')
 */
 

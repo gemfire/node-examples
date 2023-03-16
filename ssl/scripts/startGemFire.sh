@@ -17,14 +17,6 @@
 
 APP_HOME="`pwd -P`"
 
-echo ""
-echo "Geode home= ${GEODE_HOME}"
-echo ""
-echo "PATH = ${PATH} "
-echo ""
-echo "Java version:"
-java -version
-
 function launchLocator() {
     echo ""
     echo "*** Start Locator ***"
@@ -57,6 +49,14 @@ function createRegion(){
 
   popd > /dev/null
 }
+
+echo ""
+echo "Geode home= ${GEODE_HOME}"
+echo ""
+echo "PATH = ${PATH} "
+echo ""
+echo "Java version:"
+java -version
 
 launchLocator
 

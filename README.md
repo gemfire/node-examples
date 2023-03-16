@@ -1,4 +1,4 @@
-# Pivotal Cloud Cache Node.js API Examples
+# Tanzu GemFire Node.js Examples
  
 The examples in this repository show how to use the [Pivotal Cloud Cache Node.js Client API](https://github.com/gemfire/gemfire-node-client) to build Cloud Cache client applications.
 
