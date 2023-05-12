@@ -78,7 +78,7 @@ function launchLocator() {
     mkdir -p ${APP_HOME}/data/locator$1
     pushd ${APP_HOME}/data/locator$1
 
-    gfsh -e "start locator --security-properties-file=${APP_HOME}/etc/gfsecurity.properties --initial-heap=${DEFAULT_LOCATOR_MEMORY} --max-heap=${DEFAULT_LOCATOR_MEMORY} ${DEFAULT_JVM_OPTS} --name=locator$1_`hostname` --port=1033$1 --dir=${APP_HOME}/data/locator$1 --locators=${LOCATORS} --classpath=${APP_HOME}/etc --J=-Dgemfire.security-manager=org.apache.geode.examples.security.ExampleSecurityManager" &
+    gfsh -e "start locator --security-properties-file=${APP_HOME}/etc/gfsecurity.properties --bind-address=127.0.0.1 --initial-heap=${DEFAULT_LOCATOR_MEMORY} --max-heap=${DEFAULT_LOCATOR_MEMORY} ${DEFAULT_JVM_OPTS} --name=locator$1_`hostname` --port=1033$1 --dir=${APP_HOME}/data/locator$1 --locators=${LOCATORS} --classpath=${APP_HOME}/etc --J=-Dgemfire.security-manager=org.apache.geode.examples.security.ExampleSecurityManager" &
 
     popd
 }
@@ -88,7 +88,7 @@ function launchServer() {
     mkdir -p ${APP_HOME}/data/server${1}
     pushd ${APP_HOME}/data/server${1}
 
-    gfsh -e "connect --locator=${LOCATORS}  --security-properties-file=${APP_HOME}/etc/gfsecurity.properties" -e "start server --locators=${LOCATORS} --security-properties-file=${APP_HOME}/etc/gfsecurity.properties --server-port=4040${1} --J=-Xmx${DEFAULT_SERVER_MEMORY} --J=-Xms${DEFAULT_SERVER_MEMORY} ${DEFAULT_JVM_OPTS} --name=server${1}_`hostname` --dir=${APP_HOME}/data/server${1} ${STD_SERVER_ITEMS} " &
+    gfsh -e "connect --locator=${LOCATORS}  --security-properties-file=${APP_HOME}/etc/gfsecurity.properties" -e "start server --locators=${LOCATORS} --bind-address=127.0.0.1 --security-properties-file=${APP_HOME}/etc/gfsecurity.properties --server-port=4040${1} --J=-Xmx${DEFAULT_SERVER_MEMORY} --J=-Xms${DEFAULT_SERVER_MEMORY} ${DEFAULT_JVM_OPTS} --name=server${1}_`hostname` --dir=${APP_HOME}/data/server${1} ${STD_SERVER_ITEMS} " &
 
     popd
 
