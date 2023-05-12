@@ -35,7 +35,7 @@ function launchServer() {
     mkdir -p ${APP_HOME}/data/server
     pushd ${APP_HOME}/data/server > /dev/null
 
-    gfsh -e "connect --locator=localhost[10337] --bind-address=127.0.0.1 --use-ssl=true --key-store=${APP_HOME}/keys/server_keystore.p12 --trust-store=${APP_HOME}/keys/server_truststore.jks --trust-store-password=apachegeode --key-store-password=apachegeode" -e "start server --locators=localhost[10337] --server-port=40404 --name=server --dir=${APP_HOME}/data/server --J=-Dgemfire.ssl-enabled-components=all --J=-Dgemfire.ssl-keystore=${APP_HOME}/keys/server_keystore.p12 --J=-Dgemfire.ssl-truststore=${APP_HOME}/keys/server_truststore.jks --J=-Dgemfire.ssl-truststore-password=apachegeode --J=-Dgemfire.ssl-keystore-password=apachegeode"
+    gfsh -e "connect --locator=localhost[10337] --use-ssl=true --key-store=${APP_HOME}/keys/server_keystore.p12 --trust-store=${APP_HOME}/keys/server_truststore.jks --trust-store-password=apachegeode --key-store-password=apachegeode" -e "start server --locators=localhost[10337] --bind-address=127.0.0.1 --server-port=40404 --name=server --dir=${APP_HOME}/data/server --J=-Dgemfire.ssl-enabled-components=all --J=-Dgemfire.ssl-keystore=${APP_HOME}/keys/server_keystore.p12 --J=-Dgemfire.ssl-truststore=${APP_HOME}/keys/server_truststore.jks --J=-Dgemfire.ssl-truststore-password=apachegeode --J=-Dgemfire.ssl-keystore-password=apachegeode"
 
     popd > /dev/null
 }
